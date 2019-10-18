@@ -4,7 +4,6 @@ import {LayoutComponent} from './layout/layout.component';
 
 
 const routes: Routes = [
-  // { path: 'todo', loadChildren: () => import('./layout/layout.component') }
   { path: 'todo', component: LayoutComponent }
 ];
 

@@ -12,13 +12,15 @@ import zh from '@angular/common/locales/zh';
 import { LayoutComponent } from './layout/layout.component';
 import { TodoModule } from './todo/todo.module';
 import {TodoService} from './todo/todo.service';
+import { IndexComponent } from './index/index.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
