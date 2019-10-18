@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { LayoutComponent } from './layout/layout.component';
+import { TodoModule } from './todo/todo.module';
+import {TodoService} from './todo/todo.service';
 
 registerLocaleData(zh);
 
@@ -20,13 +22,14 @@ registerLocaleData(zh);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    TodoModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

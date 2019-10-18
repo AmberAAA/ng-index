@@ -1,0 +1,16 @@
+.layout{
+  display: flex;
+  flex-direction: row;
+  .menu, .detail {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 300px;
+  }
+  .body {
+    flex-grow: 1;
+  }
+  &>* {
+    transition: width 300ms ease;
+    display: block;
+  }
+}

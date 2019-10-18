@@ -1,0 +1,5 @@
+<label><input type="text" placeholder="添加清单" (keydown.enter)="saveTitle()"></label>
+<ul>
+<!--  <li *ngFor="let title of titles">{{title.title}}</li>-->
+  <app-todo-menu-item *ngFor="let item of titles" [item]="item"></app-todo-menu-item>
+</ul>
