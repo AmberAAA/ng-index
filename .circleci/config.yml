@@ -12,6 +12,7 @@ jobs:
           paths:
             - node_modules
       - run: npm run build
+      - run: npm run ci-test
       - run: echo '部署开始'
       - run: sudo apt-get update && sudo apt-get install rsync
       - restore_cache:
