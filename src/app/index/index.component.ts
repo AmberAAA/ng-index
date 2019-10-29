@@ -12,6 +12,7 @@ import { interval, Subscription} from 'rxjs';
           <span>{{potery.content}}</span>
           <span>{{potery.origin}}</span>
       </div>
+      <div>测试CI是否可用</div>
   </div>
   `,
   styleUrls: ['./index.component.scss']
