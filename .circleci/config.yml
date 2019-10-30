@@ -6,19 +6,17 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - restore_cache:
+            key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
-          paths:
-            - node_modules
+      - run: npm run ci-test
       - run: npm run build
-      # - run: npm run ci-test
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run: echo '部署开始'
       - run: sudo apt-get update && sudo apt-get install rsync
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies
       - add_ssh_keys:
           fingerprints:
             - "48:67:49:8e:80:76:70:d5:1f:43:ae:2a:aa:09:1d:0d"
