@@ -21,7 +21,8 @@ describe('IndexService', () => {
       content : '朔风吹散三更雪，倩魂犹恋桃花月。',
       origin : '菩萨蛮·朔风吹散三更雪',
       author : '纳兰性德',
-      category : '古诗文-天气-写雪'
+      category : '古诗文-天气-写雪',
+      title: ''
     };
     expect(httpClientSpy.get.calls.count()).toBe(0, '应该只运行了0次');
 

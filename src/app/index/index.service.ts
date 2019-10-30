@@ -6,6 +6,7 @@ export interface Potery {
   author: string;
   origin: string;
   category: string;
+  title: string;
 }
 
 

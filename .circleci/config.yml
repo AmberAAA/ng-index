@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10-browsers
-    parallelism: 2
+    parallelism: 1
     working_directory: ~/repo
     steps:
       - checkout
