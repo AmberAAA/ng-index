@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10-browsers
+    parallelism: 2
     working_directory: ~/repo
     steps:
       - checkout
@@ -10,6 +11,7 @@ jobs:
             key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - run: npm run ci-test
+      - run: npm run ci-e2e
       - run: npm run build
       - save_cache:
           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
