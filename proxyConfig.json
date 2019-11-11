@@ -1,0 +1,11 @@
+{
+  "/api":{
+    "target":"https://anborong.top",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true,
+    "pathRewrite":{
+      "^/api":"/api"
+    }
+  }
+}
