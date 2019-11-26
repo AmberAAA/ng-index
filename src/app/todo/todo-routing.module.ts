@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LayoutComponent} from './layout/layout.component';
-import {RouteData} from '../utils';
 
 
 const routes: Routes = [
-  { path: 'todo', component: LayoutComponent, data:  { name: 'TODO', show: false, icon: 'home'} as RouteData }
+  { path: 'todo', component: LayoutComponent }
 ];
 
 @NgModule({
