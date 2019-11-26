@@ -16,9 +16,4 @@ describe('TodoService', () => {
   it('可以被创建', () => {
     expect(todoService).toBeTruthy();
   });
-
-  it('', () => {
-
-  });
-
 });
