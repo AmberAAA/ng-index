@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../todo.service';
+import {Item} from '../todo.service';
 
 @Component({
   selector: 'app-todo-body',
@@ -12,21 +13,25 @@ export class BodyComponent implements OnInit {
     private server: TodoService
   ) {}
 
-  public name;
+  public title: string;
 
-  get list() { return this.server.getItems(); }
+  public list: Item[] = [];
 
-  ngOnInit() {
+  trackByItem(index: number, item: Item): number {
+    return item.id;
   }
 
-  save() {
-    this.server.saveItem({
-      id: 123,
-      state: 0,
-      name: this.name,
-      children: []
+  save($e) {
+    const item: Item = new Item($e.target.value);
+    this.server.saveItem(item).subscribe();
+    $e.target.value = '';
+  }
+
+  ngOnInit() {
+    this.server.getListGroup().subscribe(res => {
+      console.log(res);
+      this.list = res;
     });
-    this.name = '';
   }
 
 }

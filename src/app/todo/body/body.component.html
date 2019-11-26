@@ -1,7 +1,7 @@
 <ul>
-  <li *ngFor="let item of list">{{item.name}}</li>
+  <li *ngFor="let item of list; trackBy:trackByItem " >{{item.id}} --- {{item.title}}</li>
 </ul>
 
 <label>
-<!--  <input type="text" [(ngModel)]="name" (keydown.enter)="save($event)">-->
+  <input type="text" [(ngModel)]="title" (keydown.enter)="save($event)">
 </label>

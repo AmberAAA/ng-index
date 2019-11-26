@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {IndexComponent} from './index/index.component';
 import {RouteData} from './utils';
+import {OpenCloseComponent} from './open-close/open-close.component';
 
 
 const routes: Routes = [
-  { path: '', component: IndexComponent, data: { name: '首页', icon: 'home', show: true} as RouteData }
+  { path: '', component: IndexComponent },
+  { path: 'open', component: OpenCloseComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

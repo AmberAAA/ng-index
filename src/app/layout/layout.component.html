@@ -1,8 +1,7 @@
 <nz-layout class="layout">
   <ul nz-menu nzMode="horizontal" nzTheme="light" style="padding: 0 24px;" nzInlineIndent="56" class="menu">
-    <li nz-menu-item *ngFor="let path of paths.reverse()">
-      <a [routerLink]="'/' + path.path"><i nz-icon nzType="{{path.data.icon}}"></i>{{path.data.name}}</a>
-    </li>
+    <li nz-menu-item><a [routerLink]="'/'"><i nz-icon nzType="home"></i>首页</a></li>
+    <li nz-menu-item><a [routerLink]="'/todo'"><i nz-icon nzType="home"></i>TODO</a></li>
   </ul>
   <nz-layout class="layout-body"><router-outlet></router-outlet></nz-layout>
 </nz-layout>

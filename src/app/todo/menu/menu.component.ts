@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.titles = this.service.getListGroup();
+    // this.titles = this.service.getListGroup();
   }
 
   saveTitle() {}

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 export class Title {
   title: string;
@@ -7,26 +8,19 @@ export class Title {
 }
 
 export class Item {
-  name: string;
+  title: string;
   id: number;
   state: number;
   children: {
-    name: string,
+    title: string,
     state: string,
     id: number,
   }[];
+
+  constructor(title) {
+    this.title = title;
+  }
 }
-
-const TITLES: Title[] = [
-  { title: '标题1', id: '1' },
-  { title: '标题2', id: '2' },
-  { title: '标题3', id: '3' },
-  { title: '标题4', id: '4' },
-  { title: '标题5', id: '5' },
-];
-
-const Items: Item[] = [];
-
 
 @Injectable({
   providedIn: 'root'
@@ -37,15 +31,11 @@ export class TodoService {
     private http: HttpClient
   ) { }
 
-  getListGroup(): Title[] {
-    return TITLES;
+  getListGroup(): Observable<Item[]>  {
+    return this.http.get<Item[]>('/api/todo');
   }
 
   saveItem(item: Item) {
-    Items.push(item);
-  }
-
-  getItems(): Item[] {
-    return Items;
+    return this.http.post('/api/todo', item);
   }
 }

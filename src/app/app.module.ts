@@ -13,6 +13,7 @@ import { TodoModule } from './todo/todo.module';
 import {TodoService} from './todo/todo.service';
 import { IndexComponent } from './index/index.component';
 import {ShareModule} from './utils/share.module';
+import { OpenCloseComponent } from './open-close/open-close.component';
 
 registerLocaleData(zh);
 
@@ -20,7 +21,8 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     LayoutComponent,
-    IndexComponent
+    IndexComponent,
+    OpenCloseComponent
   ],
   imports: [
     BrowserModule,
