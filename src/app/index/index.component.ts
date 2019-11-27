@@ -8,16 +8,16 @@ import {hiddenShow} from '../animations';
     hiddenShow
   ],
   template: `
-  <div class="body">
-      <nz-card
-              [nzLoading]="load"
-              [@hiddenShow]="load ? 'hidden' : 'show'"
-              (click)="isShow = !isShow"
-              style="min-width: 250px; position: relative; min-height: 150px;"
-              [nzTitle]="potery && potery.title">
+      <span [@hiddenShow]="load ? 'hidden' : 'show'">
+              <nz-card
+                      [nzLoading]="load"
+                      (click)="isShow = !isShow"
+                      style="min-width: 250px; min-height: 150px;"
+                      [nzTitle]="potery && potery.title">
           <p style="padding: 30px 60px;">{{potery && potery.content}}</p>
       </nz-card>
-  </div>
+    </span>
+
   `,
   styleUrls: ['./index.component.scss']
 })
@@ -27,15 +27,21 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   public isShow = false;
 
-  public get load() { return !this.potery; }
+  public get load() {
+    return !this.potery;
+  }
 
   constructor(
     private server: IndexService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     // tslint:disable-next-line:max-line-length
-    this.server.getPoetry().subscribe(data => { this.potery = data; this.potery.title = `《${data.origin}》-${data.author}`; }, error => console.error(error));
+    this.server.getPoetry().subscribe(data => {
+      this.potery = data;
+      this.potery.title = `《${data.origin}》-${data.author}`;
+    }, error => console.error(error));
   }
 
   ngOnDestroy(): void {

@@ -2,7 +2,7 @@ import {trigger, state, style, animate, transition, AnimationTriggerMetadata} fr
 
 export const hiddenShow = trigger('hiddenShow', [
   state('hidden', style({
-    top: '-50px',
+    transform: 'translateY(-50px) scale(0.8)',
     opacity: 0,
   })),
   state('show', style({
